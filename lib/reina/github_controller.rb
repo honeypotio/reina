@@ -12,7 +12,7 @@ module Reina
     DESTROY_TRIGGER = "#{COMMAND_PREFIX} destroy!".freeze
     DEPLOY_TRIGGER = "#{COMMAND_PREFIX} d ".freeze
     SINGLE_DEPLOY_TRIGGER = "#{COMMAND_PREFIX} r ".freeze
-    EVENTS = %w(issues issue_comment).freeze
+    EVENTS = %w(issues issue_comment pull_request).freeze
 
     def initialize(config)
       @config = config

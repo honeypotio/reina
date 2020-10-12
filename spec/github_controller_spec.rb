@@ -380,10 +380,7 @@ RAW
         end
       end
 
-      context 'an issue is closed' do
-        let(:event) { 'issues' }
-        let(:action) { 'closed' }
-
+      RSpec.shared_examples "removes apps when closed" do
         let(:controller) do
           double('Controller',
             heroku?: false,
@@ -440,6 +437,20 @@ RAW
             dispatch
           end
         end
+      end
+
+      context 'an issue is closed' do
+        let(:event) { 'issues' }
+        let(:action) { 'closed' }
+
+        include_examples "removes apps when closed"
+      end
+
+      context 'an issue is closed' do
+        let(:event) { 'pull_request' }
+        let(:action) { 'closed' }
+
+        include_examples "removes apps when closed"
       end
 
       context 'an unexpected action has been taken' do
