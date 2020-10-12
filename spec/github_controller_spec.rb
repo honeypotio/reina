@@ -446,7 +446,7 @@ RAW
         include_examples "removes apps when closed"
       end
 
-      context 'an issue is closed' do
+      context 'a pull request is closed' do
         let(:event) { 'pull_request' }
         let(:action) { 'closed' }
 
