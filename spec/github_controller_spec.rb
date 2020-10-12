@@ -450,6 +450,14 @@ RAW
         let(:event) { 'pull_request' }
         let(:action) { 'closed' }
 
+        let(:body) do
+          StringIO.new({
+            action: action,
+            pull_request: { number: 1234 },
+            repository: { name: 'sample', full_name: 'org/sample' },
+          }.to_json)
+        end
+
         include_examples "removes apps when closed"
       end
 

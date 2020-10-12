@@ -186,7 +186,7 @@ module Reina
     end
 
     def issue_number
-      payload.dig('issue', 'number')
+      payload.dig('issue', 'number') || payload.dig('pull_request', 'number')
     end
 
     def repo_name
